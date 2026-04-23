@@ -1,0 +1,6 @@
+<h1>Eliminar Libro (Función)</h1>
+<p>¿Desea eliminar {{ libro.titulo }}?</p>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Sí, eliminar</button>
+</form>

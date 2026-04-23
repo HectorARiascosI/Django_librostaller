@@ -1,0 +1,6 @@
+<h1>Eliminar Autor (Función)</h1>
+<p>¿Desea eliminar {{ autor.nombre }}?</p>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Sí, eliminar</button>
+</form>
