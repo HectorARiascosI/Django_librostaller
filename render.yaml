@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: gestion-libros
+    env: python
+    buildCommand: "./build.sh"
+    startCommand: "gunicorn gestion_libros.wsgi:application"
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.0
+      - key: DATABASE_URL
+        fromDatabase:
+          name: gestion-libros-db
+          property: connectionString
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DEBUG
+        value: False
+
+databases:
+  - name: gestion-libros-db
+    databaseName: gestion_libros
+    user: gestion_libros_user
