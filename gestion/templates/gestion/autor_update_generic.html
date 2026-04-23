@@ -1,6 +1,14 @@
-<h1>Editar Autor (Genérica)</h1>
+{% extends 'gestion/base.html' %}
+
+{% block title %}Editar Autor{% endblock %}
+
+{% block content %}
+<h1>✏️ Editar Autor (Vista Genérica)</h1>
+
 <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">Actualizar</button>
+    <button type="submit" class="btn">💾 Actualizar</button>
+    <a href="{% url 'autor_list_generic' %}" class="btn btn-secondary">❌ Cancelar</a>
 </form>
+{% endblock %}

@@ -1,6 +1,19 @@
-<h1>Eliminar Libro (Genérica)</h1>
-<p>¿Desea eliminar {{ object.titulo }}?</p>
+{% extends 'gestion/base.html' %}
+
+{% block title %}Eliminar Libro{% endblock %}
+
+{% block content %}
+<h1>🗑️ Eliminar Libro (Vista Genérica)</h1>
+
+<div class="alert alert-warning">
+    <strong>⚠️ Advertencia:</strong> ¿Estás seguro de que deseas eliminar el libro <strong>{{ object.titulo }}</strong>?
+    <br><br>
+    Esta acción no se puede deshacer.
+</div>
+
 <form method="post">
     {% csrf_token %}
-    <button type="submit">Confirmar</button>
+    <button type="submit" class="btn btn-danger">✓ Confirmar Eliminación</button>
+    <a href="{% url 'libro_list_generic' %}" class="btn btn-secondary">❌ Cancelar</a>
 </form>
+{% endblock %}

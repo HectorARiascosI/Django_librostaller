@@ -1,6 +1,14 @@
-<h1>Formulario Libro (Función)</h1>
+{% extends 'gestion/base.html' %}
+
+{% block title %}Formulario de Libro{% endblock %}
+
+{% block content %}
+<h1>{% if form.instance.pk %}✏️ Editar Libro{% else %}➕ Crear Nuevo Libro{% endif %}</h1>
+
 <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">Guardar</button>
+    <button type="submit" class="btn">💾 Guardar</button>
+    <a href="{% url 'lista_libros' %}" class="btn btn-secondary">❌ Cancelar</a>
 </form>
+{% endblock %}

@@ -1,6 +1,14 @@
-<h1>Crear Autor (Genérica)</h1>
+{% extends 'gestion/base.html' %}
+
+{% block title %}Crear Autor{% endblock %}
+
+{% block content %}
+<h1>➕ Crear Nuevo Autor (Vista Genérica)</h1>
+
 <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">Crear</button>
+    <button type="submit" class="btn">💾 Crear Autor</button>
+    <a href="{% url 'autor_list_generic' %}" class="btn btn-secondary">❌ Cancelar</a>
 </form>
+{% endblock %}

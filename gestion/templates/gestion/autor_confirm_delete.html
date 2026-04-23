@@ -1,6 +1,19 @@
-<h1>Eliminar Autor (Función)</h1>
-<p>¿Desea eliminar {{ autor.nombre }}?</p>
+{% extends 'gestion/base.html' %}
+
+{% block title %}Eliminar Autor{% endblock %}
+
+{% block content %}
+<h1>🗑️ Eliminar Autor</h1>
+
+<div class="alert alert-warning">
+    <strong>⚠️ Advertencia:</strong> ¿Estás seguro de que deseas eliminar al autor <strong>{{ autor.nombre }}</strong>?
+    <br><br>
+    Esta acción no se puede deshacer y también eliminará todos los libros asociados a este autor.
+</div>
+
 <form method="post">
     {% csrf_token %}
-    <button type="submit">Sí, eliminar</button>
+    <button type="submit" class="btn btn-danger">✓ Sí, eliminar</button>
+    <a href="{% url 'lista_autores' %}" class="btn btn-secondary">❌ Cancelar</a>
 </form>
+{% endblock %}

@@ -1,6 +1,14 @@
-<h1>Crear Libro (Genérica)</h1>
+{% extends 'gestion/base.html' %}
+
+{% block title %}Crear Libro{% endblock %}
+
+{% block content %}
+<h1>➕ Crear Nuevo Libro (Vista Genérica)</h1>
+
 <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">Crear</button>
+    <button type="submit" class="btn">💾 Crear Libro</button>
+    <a href="{% url 'libro_list_generic' %}" class="btn btn-secondary">❌ Cancelar</a>
 </form>
+{% endblock %}

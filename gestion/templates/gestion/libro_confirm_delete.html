@@ -1,6 +1,19 @@
-<h1>Eliminar Libro (Función)</h1>
-<p>¿Desea eliminar {{ libro.titulo }}?</p>
+{% extends 'gestion/base.html' %}
+
+{% block title %}Eliminar Libro{% endblock %}
+
+{% block content %}
+<h1>🗑️ Eliminar Libro</h1>
+
+<div class="alert alert-warning">
+    <strong>⚠️ Advertencia:</strong> ¿Estás seguro de que deseas eliminar el libro <strong>{{ libro.titulo }}</strong>?
+    <br><br>
+    Esta acción no se puede deshacer.
+</div>
+
 <form method="post">
     {% csrf_token %}
-    <button type="submit">Sí, eliminar</button>
+    <button type="submit" class="btn btn-danger">✓ Sí, eliminar</button>
+    <a href="{% url 'lista_libros' %}" class="btn btn-secondary">❌ Cancelar</a>
 </form>
+{% endblock %}
