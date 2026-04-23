@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Libros</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            max-width: 800px;
+            width: 100%;
+        }
+        h1 {
+            color: #667eea;
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 40px;
+            font-size: 1.1em;
+        }
+        .section {
+            margin-bottom: 30px;
+        }
+        .section h2 {
+            color: #764ba2;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 10px;
+        }
+        .links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        .link-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-decoration: none;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            font-weight: bold;
+        }
+        .link-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        .admin-link {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            display: block;
+            text-align: center;
+            padding: 15px;
+            border-radius: 10px;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: transform 0.3s;
+        }
+        .admin-link:hover {
+            transform: scale(1.05);
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            color: #666;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📚 Gestión de Libros</h1>
+        <p class="subtitle">Sistema CRUD completo para Autores y Libros</p>
+        
+        <div class="section">
+            <h2>👤 Autores - Vistas Función</h2>
+            <div class="links">
+                <a href="{% url 'lista_autores' %}" class="link-card">📋 Lista</a>
+                <a href="{% url 'crear_autor' %}" class="link-card">➕ Crear</a>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>👤 Autores - Vistas Genéricas</h2>
+            <div class="links">
+                <a href="{% url 'autor_list_generic' %}" class="link-card">📋 Lista</a>
+                <a href="{% url 'autor_create_generic' %}" class="link-card">➕ Crear</a>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📖 Libros - Vistas Función</h2>
+            <div class="links">
+                <a href="{% url 'lista_libros' %}" class="link-card">📋 Lista</a>
+                <a href="{% url 'crear_libro' %}" class="link-card">➕ Crear</a>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📖 Libros - Vistas Genéricas</h2>
+            <div class="links">
+                <a href="{% url 'libro_list_generic' %}" class="link-card">📋 Lista</a>
+                <a href="{% url 'libro_create_generic' %}" class="link-card">➕ Crear</a>
+            </div>
+        </div>
+
+        <a href="/admin/" class="admin-link">🔐 Panel de Administración</a>
+
+        <div class="footer">
+            <p>Desarrollado por Hector & Tatiana</p>
+            <p>Proyecto Django - v1.0.0</p>
+        </div>
+    </div>
+</body>
+</html>

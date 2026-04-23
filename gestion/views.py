@@ -4,6 +4,10 @@ from django.urls import reverse_lazy
 from .models import Autor, Libro
 from .forms import AutorForm, LibroForm
 
+# VISTA DE INICIO
+def index(request):
+    return render(request, 'gestion/index.html')
+
 # VISTAS BASADAS EN FUNCIONES (4)
 def lista_autores(request):
     autores = Autor.objects.all()

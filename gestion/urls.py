@@ -2,6 +2,9 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
+    # PÁGINA DE INICIO
+    path('', views.index, name='index'),
+    
     # VISTAS FUNCIÓN
     path('autores/', views.lista_autores, name='lista_autores'),
     path('autores/crear/', views.crear_autor, name='crear_autor'),
