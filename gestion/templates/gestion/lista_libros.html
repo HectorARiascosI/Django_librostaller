@@ -1,0 +1,10 @@
+<h1>Libros (Vista Función)</h1>
+<a href="{% url 'crear_libro' %}">Agregar Libro</a>
+<ul>
+    {% for libro in libros %}
+    <li>{{ libro.titulo }} - {{ libro.autor.nombre }} ({{ libro.genero }})
+        <a href="{% url 'editar_libro' libro.pk %}">Editar</a>
+        <a href="{% url 'eliminar_libro' libro.pk %}">Eliminar</a>
+    </li>
+    {% endfor %}
+</ul>

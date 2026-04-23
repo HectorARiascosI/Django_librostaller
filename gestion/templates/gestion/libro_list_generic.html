@@ -1,0 +1,10 @@
+<h1>Libros (Vista Genérica)</h1>
+<a href="{% url 'libro_create_generic' %}">Agregar Libro</a>
+<ul>
+    {% for libro in libros %}
+    <li>{{ libro.titulo }} - {{ libro.autor.nombre }}
+        <a href="{% url 'libro_update_generic' libro.pk %}">Editar</a>
+        <a href="{% url 'libro_delete_generic' libro.pk %}">Eliminar</a>
+    </li>
+    {% endfor %}
+</ul>
