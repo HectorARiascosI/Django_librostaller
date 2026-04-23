@@ -36,3 +36,27 @@ def eliminar_autor(request, pk):
         autor.delete()
         return redirect('lista_autores')
     return render(request, 'gestion/autor_confirm_delete.html', {'autor': autor})
+
+
+# VISTAS GENÉRICAS (4)
+class AutorListView(ListView):
+    model = Autor
+    template_name = 'gestion/autor_list_generic.html'
+    context_object_name = 'autores'
+
+class AutorCreateView(CreateView):
+    model = Autor
+    form_class = AutorForm
+    template_name = 'gestion/autor_create_generic.html'
+    success_url = reverse_lazy('autor_list_generic')
+
+class AutorUpdateView(UpdateView):
+    model = Autor
+    form_class = AutorForm
+    template_name = 'gestion/autor_update_generic.html'
+    success_url = reverse_lazy('autor_list_generic')
+
+class AutorDeleteView(DeleteView):
+    model = Autor
+    template_name = 'gestion/autor_delete_generic.html'
+    success_url = reverse_lazy('autor_list_generic')
